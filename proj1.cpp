@@ -8,38 +8,37 @@ int main()
 {
     char FLAG;
     int array[3]={0};
-    int i,a,b,c,gu_a,gu_b,gu_c,correct,wrong_dir,cor_times=0,wrong_times=0,total,times;     /*a,b,cÎªËæ»úÊı£¬a_gu,b_gu,c_guÎª²Â²âÊı£¬iÎªÅĞ¶¨Ëæ»úÊıÊÇ·ñÖØ¸´µÄÑ­»·Êı*/
-    cout << "ÇëÎÊÄúÊÇ·ñÒª½øĞĞÓÎÏ·£¿ÊäÈëY±íÊ¾¼ÌĞø¡£" << endl;
+    int i,a,b,c,gu_a,gu_b,gu_c,correct,wrong_dir,cor_times=0,wrong_times=0,total,times;     /*a,b,cä¸ºéšæœºæ•°ï¼Œa_gu,b_gu,c_guä¸ºçŒœæµ‹æ•°ï¼Œiä¸ºåˆ¤å®šéšæœºæ•°æ˜¯å¦é‡å¤çš„å¾ªç¯æ•°*/
+    cout << "è¯·é—®æ‚¨æ˜¯å¦è¦è¿›è¡Œæ¸¸æˆï¼Ÿè¾“å…¥Yè¡¨ç¤ºç»§ç»­ã€‚" << endl;
     cin >> FLAG;
     FLAG = toupper(FLAG);
-    while(FLAG ==  'Y')              /* ÅĞ¶ÏÊÇ·ñÒª¼ÌĞøÓÎÏ·*/
+    while(FLAG ==  'Y')              /* åˆ¤æ–­æ˜¯å¦è¦ç»§ç»­æ¸¸æˆ*/
     {
         srand(time(NULL));
         a=rand()%10;
-        while(true)                  /*Éú³ÉÎŞÖØ¸´Ëæ»úÊı*/
+        while(true)                  /*ç”Ÿæˆæ— é‡å¤éšæœºæ•°*/
         {
             b=rand()%10;
             c=rand()%10;
             if ((a != b) && (a != c) && (b != c)) break;
         }
-        cout << a << b << c;
         times = 1;
         while(times <= 7)
         {
 
             correct = 0, wrong_dir = 0;
-            cout << "ÇëÊäÈëÄú²Â²âµÄÈı¸öÊı×Ö£º" << endl;
-            cin >> gu_a >> gu_b >> gu_c;                /*´¢´æÍæ¼Ò²ÂµÄÊı*/
+            cout << "è¯·è¾“å…¥æ‚¨çŒœæµ‹çš„ä¸‰ä¸ªæ•°å­—ï¼š" << endl;
+            cin >> gu_a >> gu_b >> gu_c;                /*å‚¨å­˜ç©å®¶çŒœçš„æ•°*/
             array[0] = gu_a;
             array[1] = gu_b;
             array[2] = gu_c;
-            for(i=0;i<=2;i++)                           /*ÅĞ¶Ï´íÎ»ÊıÊıÄ¿*/
+            for(i=0;i<=2;i++)                           /*åˆ¤æ–­é”™ä½æ•°æ•°ç›®*/
             {
                 if (array[i] == a && i!=0) wrong_dir++;
                 if (array[i] == b && i!=1) wrong_dir++;
                 if (array[i] == c && i!=2) wrong_dir++;
             }
-            if (array[0] == a) correct++;               /*ÅĞ¶ÏÕıÈ·Êı*/
+            if (array[0] == a) correct++;               /*åˆ¤æ–­æ­£ç¡®æ•°*/
             if (array[1] == b) correct++;
             if (array[2] == c) correct++;
 
@@ -47,7 +46,7 @@ int main()
             if (correct == 3)
             {
             	cor_times++;
-                cout << "ÄúÒÑ¾­³É¹¦£¬ÊÇ·ñ»¹Òª¼ÌĞøÓÎÏ·£¿" << endl;
+                cout << "æ‚¨å·²ç»æˆåŠŸï¼Œæ˜¯å¦è¿˜è¦ç»§ç»­æ¸¸æˆï¼Ÿ" << endl;
                 cin >> FLAG;
                 FLAG = toupper(FLAG);
                 break;
@@ -57,14 +56,14 @@ int main()
                 if (times == 7)
                 {
                 	wrong_times++;
-                    cout << "¶Ô²»Æğ£¬ÄúÒÑÃ»ÓĞ»ú»á£¬ÕıÈ·´ğ°¸Îª£º" << a <<" " << b << " " << c << "\n" << "ÊÇ·ñÒªÖØĞÂ¿ªÊ¼ÓÎÏ·£¿" << endl;
+                    cout << "å¯¹ä¸èµ·ï¼Œæ‚¨å·²æ²¡æœ‰æœºä¼šï¼Œæ­£ç¡®ç­”æ¡ˆä¸ºï¼š" << a <<" " << b << " " << c << "\n" << "æ˜¯å¦è¦é‡æ–°å¼€å§‹æ¸¸æˆï¼Ÿ" << endl;
                     cin >> FLAG;
                     FLAG = toupper(FLAG);
                     break;
                 }
                 else
                 {
-                    cout <<"²Â²â´íÎó£¡ÕâÊÇÄúµÄµÚ" << times << "´ÎÊäÈë£¬ÇëÄú¼ÌĞø²Â²âÊı×Ö£¡" << endl;
+                    cout <<"çŒœæµ‹é”™è¯¯ï¼è¿™æ˜¯æ‚¨çš„ç¬¬" << times << "æ¬¡è¾“å…¥ï¼Œè¯·æ‚¨ç»§ç»­çŒœæµ‹æ•°å­—ï¼" << endl;
                     times++;
                 }
 
@@ -74,6 +73,6 @@ int main()
 
     }
     total = cor_times + wrong_times;
-    cout << "ÄúÒ»¹²ÓÎÏ·ÁË£º" << total << "´Î£¬³É¹¦ÁË" << cor_times << "´Î" << "Ê§°ÜÁË" << wrong_times << "´Î¡£";
+    cout << "æ‚¨ä¸€å…±æ¸¸æˆäº†ï¼š" << total << "æ¬¡ï¼ŒæˆåŠŸäº†" << cor_times << "æ¬¡" << "å¤±è´¥äº†" << wrong_times << "æ¬¡ã€‚";
     return 0;
 }
